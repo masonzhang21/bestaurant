@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.43789beb.chunk.css",
+    "main.js": "/static/js/main.b4c22f6a.chunk.js",
+    "main.js.map": "/static/js/main.b4c22f6a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.aaf88d20.js",
+    "runtime-main.js.map": "/static/js/runtime-main.aaf88d20.js.map",
+    "static/css/2.39499091.chunk.css": "/static/css/2.39499091.chunk.css",
+    "static/js/2.4f9eb65b.chunk.js": "/static/js/2.4f9eb65b.chunk.js",
+    "static/js/2.4f9eb65b.chunk.js.map": "/static/js/2.4f9eb65b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1257a6e09874c3f320fd0869f4719dd0.js": "/precache-manifest.1257a6e09874c3f320fd0869f4719dd0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.39499091.chunk.css.map": "/static/css/2.39499091.chunk.css.map",
+    "static/css/main.43789beb.chunk.css.map": "/static/css/main.43789beb.chunk.css.map",
+    "static/js/2.4f9eb65b.chunk.js.LICENSE.txt": "/static/js/2.4f9eb65b.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/background.0df3c2b9.png",
+    "static/media/plate_white.png": "/static/media/plate_white.f2bce142.png",
+    "static/media/yelpLogo.png": "/static/media/yelpLogo.8f25535c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aaf88d20.js",
+    "static/css/2.39499091.chunk.css",
+    "static/js/2.4f9eb65b.chunk.js",
+    "static/css/main.43789beb.chunk.css",
+    "static/js/main.b4c22f6a.chunk.js"
+  ]
+}

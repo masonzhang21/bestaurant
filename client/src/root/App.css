@@ -1,0 +1,57 @@
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h3, p {
+  word-wrap: break-word;
+  white-space: normal;
+
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content:center;*/
+  font-size: calc(10px + 2vmin);
+  color: #1b262c;
+  font-family: "Nunito";
+  text-align: center;
+  background-image: url("../images/background.png");
+  
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  min-width: 4em;
+}
+
+button:hover {
+  text-decoration: none !important;
+}
+button:disabled {
+  background-color: #e08761 !important;
+
+}
+button:focus {
+  box-shadow: 0 0 3pt 2pt red !important;
+}
+input:focus {
+  box-shadow: 0 0 3pt 2pt red !important;
+}
+
+.inactive {
+  background-color: #e35417;
+}
+
+.active {
+  background-color: #940d0d;
+}
+
+
