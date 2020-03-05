@@ -42,7 +42,9 @@ async function processCreate(req, res) {
   } else if (restaurants.length > 15) {
     //grab top 15 restaurants and then randomize a bit.
     restaurants = restaurants.slice(0, 20);
+    console.log(restaurants)
     restaurants.sort(() => 0.5 - Math.random());
+    console.log(restaurants)
   }
 
   let code = "";
@@ -82,6 +84,7 @@ async function processCreate(req, res) {
 
   // Get sub-array of first 5 restaurants.
   let chosenFive = restaurants.slice(0, 5);
+  console.log(chosenFive)
   //adds each restaurant to database
   chosenFive.forEach(async restaurant => {
     let id = restaurant.id;

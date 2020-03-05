@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Map from "./Map";
 import SimpleBar from "simplebar-react";
-import 'simplebar/dist/simplebar.min.css';
+import "simplebar/dist/simplebar.min.css";
 import ImageCarousel from "./ImageCarousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -26,7 +26,7 @@ export class Tile extends Component {
 
   /**
    * If new restaurant data is sent, scroll to top.
-   * @param {Object} prevProps 
+   * @param {Object} prevProps
    */
   componentDidUpdate(prevProps) {
     if (prevProps.data !== this.props.data) {
@@ -38,6 +38,10 @@ export class Tile extends Component {
    * Table displaying the hours a restaurant is open.
    */
   HoursComponent = () => {
+    if (!this.props.data.hours) {
+      //no hours data
+      return <p>(No hours data)</p>;
+    }
     const hours = this.props.data.hours[0].open;
     const dayMap = {
       0: "Monday",
@@ -86,10 +90,19 @@ export class Tile extends Component {
       }
     }
 
+    
+
     return (
       <table
         className="table table-striped table-bordered table-sm mt-3 table-responsive-sm"
-        style={{ fontSize: "1rem", width: "100%", border: "0", alignSelf: "center", margin: "auto", display: "inline-table" }}
+        style={{
+          fontSize: "1rem",
+          width: "100%",
+          border: "0",
+          alignSelf: "center",
+          margin: "auto",
+          display: "inline-table"
+        }}
       >
         <thead className="thead-dark">
           <tr>
@@ -181,6 +194,7 @@ export class Tile extends Component {
       1: "one",
       1.5: "onehalf",
       2: "two",
+      2.5: "twohalf",
       3: "three",
       3.5: "threehalf",
       4: "four",
@@ -221,7 +235,7 @@ export class Tile extends Component {
       backgroundColor: "#e35417",
       border: "none",
       color: "#EAE7DC",
-      padding: "1rem 0 1rem 0",
+      padding: "1rem 0.5rem 1rem 0.5rem",
       width: "100%",
       height: "2rem",
       lineHeight: "normal",
@@ -251,21 +265,24 @@ export class Tile extends Component {
                 <p style={label}>Rating: </p>
               </Col>
               <Col>
-                <p style={text}>
-                  <img
-                    src={require(`../images/yelpratings/${
-                      ratingsMap[this.props.data.rating]
-                    }.png`)}
-                    alt=""
-                    className="mb-3"
-                  ></img>
-                  <br />
-                  <span style={{ display: "inline-block" }}>
-                    {this.props.data.rating} ☆ |{" "}
-                    {this.props.data.review_count + " "}
-                    reviews
-                  </span>
-                </p>
+                {this.props.data.rating && (
+                  <p style={text}>
+                    <img
+                      src={require(`../images/yelpratings/${
+                        ratingsMap[this.props.data.rating]
+                      }.png`)}
+                      alt=""
+                      className="mb-3"
+                    ></img>
+                    <br />
+                    <span style={{ display: "inline-block" }}>
+                      {this.props.data.rating} ☆ |{" "}
+                      {this.props.data.review_count &&
+                        this.props.data.review_count + " "}
+                      reviews
+                    </span>
+                  </p>
+                )}
               </Col>
             </Row>
             <hr />
@@ -277,9 +294,9 @@ export class Tile extends Component {
                 <p style={text}>
                   {this.props.data.price} <br />(
                   {this.props.data.price in priceMap
-                    ? priceMap[this.props.data.price]
-                    : "no data"}{" "}
-                  dollars)
+                    ? priceMap[this.props.data.price] + " dollars"
+                    : "No price data"}
+                  )
                 </p>
               </Col>
             </Row>
@@ -390,6 +407,6 @@ export class Tile extends Component {
 Tile.propTypes = {
   data: PropTypes.object,
   style: PropTypes.object
-}
+};
 
 export default Tile;

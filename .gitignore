@@ -64,8 +64,8 @@ server/.yarn-integrity
 server/.env
 
 server/firebaseserv
-server/src/firebase.js
 server/src/yelp.js
+server/src/firebase.js
 
 # Logs
 client/logs
@@ -143,10 +143,11 @@ client/firebase.json
 
 client/.gitignore
 
-client/src/utils/firebase.js
-client/src/utils/googleApiKey.js
-
 client/README.md
+
+client/src/utils/googleApiKey.js
+client/src/utils/firebase.js
+
 
 
 server/.gitignore

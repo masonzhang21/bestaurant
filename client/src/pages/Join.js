@@ -64,7 +64,7 @@ class Join extends Component {
       } else {
         const blankCode = { 0: "", 1: "", 2: "", 3: "" };
         this.setState({ code: blankCode, existsError: true });
-        this.state.refs["input0"].current.getInnerRef().focus();
+        this.state.refs[0].current.getInnerRef().focus();
       }
     }
   }

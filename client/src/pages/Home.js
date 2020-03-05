@@ -10,6 +10,11 @@ import PacmanLoader from "react-spinners/PacmanLoader";
  * Home page.
  */
 class Home extends Component {
+
+  /**
+   * Constructor.
+   * @param {Object} props 
+   */
   constructor(props) {
     super(props);
 
@@ -19,6 +24,7 @@ class Home extends Component {
     };
   }
 
+  /**Loops words in people every two seconds. */
   componentDidMount() {
     this.wordLoop = setInterval(() => {
       let nextIndex = (this.state.wordIndex + 1) % this.people.length;
@@ -26,6 +32,7 @@ class Home extends Component {
     }, 2000);
   }
 
+  /**Clears word loop interval. */
   componentWillUnmount() {
     clearInterval(this.wordLoop);
   }
@@ -61,7 +68,7 @@ class Home extends Component {
     };
 
     return (
-      <div className="mt-4">
+      <div>
         <div>
           <h1 style={header}>Bestaurant</h1>
           <p style={subHeader}>

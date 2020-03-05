@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import key from "../utils/googleApiKey"
+
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 /**
@@ -91,5 +91,5 @@ Map.propTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: key
+  apiKey: "AIzaSyABfejpcZ_TO04EADE8H8-qdSrQ2HeqwRo"
 })(MapContainer);

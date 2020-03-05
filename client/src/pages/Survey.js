@@ -25,6 +25,7 @@ export class Survey extends Component {
     this.rating = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
     this.restaurants = {};
     this.state = {
+      databaseError: false,
       loading: true,
       redirect: false,
       done: false,
@@ -55,10 +56,8 @@ export class Survey extends Component {
       return;
     }
     let restaurants = await this.getRestaurants();
-    if (!restaurants) {
-      //restaurants is undefined/empty. This redirect is a workaround for when the user clicks from
-      //"create" to "go to survey" too quickly on the /success page, before database data has been loaded yet.
-      this.setState({ redirect: true });
+    if (Object.keys(restaurants).length !== 5) {
+      this.setState({ databaseError: true });
       return;
     }
     this.restaurants = restaurants;
@@ -70,23 +69,29 @@ export class Survey extends Component {
   }
 
   /**
-   * Checks if the code is valid and if so, returns an object containing restaurant data.
-   *
-   * @return {Object} restaurant data..
+   * Checks if the code is valid and if so, queries the database 5 times over 15 seconds, or
+   * until it receives an object containing data for five restaurants.
+   * @return {Object} restaurant data.
    */
   async getRestaurants() {
-    return await database
-      .ref()
-      .once("value")
-      .then(snapshot => {
-        if (snapshot.child(this.props.code).exists()) {
-          return snapshot
-            .child(this.props.code)
-            .child("restaurants")
-            .val();
-        }
-      })
-      .catch("Error.");
+    let restaurants = {};
+    let tries = 0;
+
+    while (Object.keys(restaurants).length !== 5 && tries < 5) {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      let query = await database
+        .ref()
+        .once("value")
+        .then(snapshot => {
+          if (snapshot.child(this.props.code).exists()) {
+            return snapshot.child(this.props.code + "/restaurants").val();
+          }
+        })
+        .catch("Error.");
+      restaurants = query;
+      tries++;
+    }
+    return restaurants;
   }
 
   /**Writes to database the results of the survey. */
@@ -108,10 +113,10 @@ export class Survey extends Component {
       return null;
     }
 
-    const restaurantId = Object.keys(this.restaurants)[
+    let restaurantId = Object.keys(this.restaurants)[
       this.state.currentTile - 1
     ];
-    const currentRestaurant = this.restaurants[restaurantId];
+    let currentRestaurant = this.restaurants[restaurantId];
 
     return (
       <div className={"mb-3"}>
@@ -214,7 +219,27 @@ export class Survey extends Component {
 
     if (this.state.loading) {
       return (
-        <BarLoader width={"100%"} height={10} loading={this.state.loading} />
+        <React.Fragment>
+          <BarLoader width={"100%"} height={10} loading={this.state.loading} />
+          <div className={"mx-3 my-3"}>
+            <div className="mt-3">
+              <h1
+                style={{
+                  fontSize: "calc(2.5rem + 0.7vmin)",
+                  fontWeight: "800"
+                }}
+              >
+                {"Survey: " + this.props.code}
+              </h1>
+              {this.state.databaseError && (
+                <h2>
+                  Error: Something went wrong with the database. Try refreshing
+                  the page?
+                </h2>
+              )}
+            </div>
+          </div>
+        </React.Fragment>
       );
     }
 

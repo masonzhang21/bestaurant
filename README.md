@@ -1,3 +1,6 @@
+# Try it out!
+https://consensus-9226f.firebaseapp.com/
+
 # Bestaurant
 Need help deciding where you and your group are going to eat?
 From "I don't really care" to "let's eat vegetarian today",
