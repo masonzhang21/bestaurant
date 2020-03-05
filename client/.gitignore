@@ -65,3 +65,9 @@ node_modules/
 .env
 
 .vscode
+
+build
+
+.firebaserc
+
+.firebase.json
