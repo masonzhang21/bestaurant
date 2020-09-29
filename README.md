@@ -7,11 +7,11 @@
   <a href="#technologies">Technologies</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#project-design-and-organization">Project Design</a> •
-  <a href="#building-the-project">Building the project</a> •
+  <a href="#building-the-project">Building the project</a> 
 </p>
 
 <p align="center">A React App to help you and a group of people decide where to eat.</p>
-<p align="center"> Try it out<a href="https://consensus-9226f.firebaseapp.com/">here</a>! </p>
+<p align="center"> Try it out <a href="https://consensus-9226f.firebaseapp.com/">here</a>! </p>
 
 ## Introduction 
 Need help deciding where you and your group are going to eat?
@@ -35,7 +35,7 @@ Bestaurant has got you covered. As the group leader, click Create and choose a b
 - Results update in realtime, without the need to refresh the page
 
 ## Project Design and Organization
-Everything's pretty standard.
+Nothing too special. We have the website in the `client` directory and the server file in the `server` directory. 
 
 ## Building the Project
 Just use `npm run build` while in the `client` directory to build the React app!
