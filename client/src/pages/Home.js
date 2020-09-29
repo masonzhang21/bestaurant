@@ -85,9 +85,8 @@ class Home extends Component {
               "let's eat vegetarian today"
             </span>
             {", "}<span style={{ color: "#e35417" }}>Bestaurant </span> has got you
-            covered. Click create and choose a bunch of filters (price,
-            location, cuisine, & much more!). Our nifty algorithm will
-            generate <span style={{ color: "#e35417" }}>5 amazing matches </span> for y'all along with a code to a survey.
+            covered. Instead of asking everyone for their opinions and receiving lukewarm, indifferent responses, use our nifty algorithm
+            to generate <span style={{ color: "#e35417" }}>5 amazing matches </span> for y'all along with a code to a survey.
             Share the code with everyone so they can rate the restaurants on a
             scale of 1 to 5, and you'll quickly see what the <span style={{ color: "#e35417" }}>best restaurant </span> for
             your party is. The days of indecision are over!
