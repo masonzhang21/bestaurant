@@ -1,6 +1,6 @@
 <p align="center"><img src="./client/public/bestaurant_logo.jpg" width=800px/></p>
 
-<h1 align="center">Wikiguessr</h1>
+<h1 align="center">Bestaurant</h1>
 
 <p align="center">
   <a href="#technologies">Technologies</a> •
@@ -11,9 +11,11 @@
 </p>
 
 <p align="center">A Wikipedia-based trivia game: try to guess words based on their Wikipedia article. </p>
-<p align="center"> Play the game<a href="https://wikiguessr.com">here</a>! </p>
-<p align="center"> This was my first CS project, and the code/organization is horrendous. Please don't judge too hard! </p>
+<p align="center"> Try it out<a href="https://consensus-9226f.firebaseapp.com/">here</a>! </p>
 
+## Introduction 
+Need help deciding where you and your group are going to eat?
+Bestaurant has got you covered. As the group leader, click Create and choose a bunch of filters (distance, price, cuisine, &amp; much more!). Our nifty algorithm will generate 5 potential spots for y'all along with a code to a survey. Share the code with everyone so they can rate the restaurants on a scale of 1 to 5, and you'll quickly see what the best restaurant for your party is. The days of indecision are over!
 ## Technologies
 - HTML
 - CSS
