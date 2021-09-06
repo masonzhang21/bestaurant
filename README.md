@@ -17,7 +17,7 @@
 Need help deciding where you and your group are going to eat?
 Bestaurant has got you covered. As the group leader, click Create and choose a bunch of filters (distance, price, cuisine, &amp; much more!). Our nifty algorithm will generate 5 potential spots for y'all along with a code to a survey. Share the code with everyone so they can rate the restaurants on a scale of 1 to 5, and you'll quickly see what the best restaurant for your party is. The days of indecision are over!
 
-### A bit more detailed (sorry, it only sounds complicated I swear!)
+### A bit more detailed
 1. A person ("group leader") gets fed up with their group not being able to choose where to eat. They click the "Create" button to make a survey. 
 2. They input several filters (distance, cuisine, price, ratings, etc) and their location, and this information is sent to a backend Node.js server hosted on Firebase Cloud Functions. There, a request is made to the Yelp Fusion Business Search API endpoint. 
 3. If the API returns more than 5 restaurants (which pass the group leader's filters), the top 5 restaurants will be stored in the database under a four digit code. If the API doesn't return more than 5 restaurants (which is fairly rare), the group leader will have to broaden their search parameters. Otherwise, they receive the four digit code, which others can use to access a survey. 
